@@ -1,0 +1,19 @@
+{
+  "name": "matrix-rain-p5js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sketch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prolifick1/matrix-rain-p5js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prolifick1/matrix-rain-p5js/issues"
+  },
+  "homepage": "https://github.com/prolifick1/matrix-rain-p5js#readme"
+}
