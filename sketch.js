@@ -6,7 +6,7 @@ function setup() {
     window.innerWidth,
     window.innerHeight
   )
-  background(0, 50);
+  background(0, 180);
   var x = 0;
   for (var i = 0; i <= width / charSize; i++) {
     stream = new Stream();
@@ -57,7 +57,7 @@ function Stream() {
   this.totalChars = round(random(5, 20));
   this.speed = random(1, 5);
   this.generateChars = function (x, y) {
-    var first = true;
+    var first = round(random(0, 1)) === 1;
     for (var i = 0; i <= this.totalChars; i++) {
       char = new Character(x, y, this.speed, first);
       char.setToRandomChar();
@@ -69,7 +69,7 @@ function Stream() {
   this.render = function () {
     this.chars.forEach(function (char) {
       if (char.first) {
-        fill(255, 255, 180)
+        fill(140, 255, 180)
       } else {
         fill(0, 255, 70)
       }
