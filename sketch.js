@@ -1,19 +1,27 @@
 var charSize = 20;
+var streams = [];
 
-function setup() {
+function setup() {  
   createCanvas(
     window.innerWidth,
     window.innerHeight
   )
   background(0);
-  stream = new Stream();
-  stream.generateChars();
+  var x = 0;
+  for(var i = 0; i <= width / charSize; i++) {
+    stream = new Stream();
+    stream.generateChars(x, random(-500, 0));
+    streams.push(stream);
+    x += charSize;
+  }
   textSize(charSize);
 }
 
 function draw() {
   background(0);
-  stream.render();
+  streams.forEach(function(stream) {
+    stream.render();
+  });
 }
 
 
@@ -45,11 +53,9 @@ function Character(x, y, speed) {
 
 function Stream() {
   this.chars = [];
-  this.totalChars = round(random(5, 30));
+  this.totalChars = round(random(5, 20));
   this.speed = random(1, 5);
-  this.generateChars = function () {
-    var y = 0;
-    var x = width / 2;
+  this.generateChars = function (x, y) {
     for (var i = 0; i <= this.totalChars; i++) {
       char = new Character(x, y, this.speed);
       char.setToRandomChar();
