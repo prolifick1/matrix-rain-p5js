@@ -10,7 +10,7 @@ function setup() {
   char = new Character(
     width / 2,
     0,
-    random(5, 10)
+    random(1, 5)
   );
   char.setToRandomSymbol();
   textSize(symbolSize);
@@ -38,12 +38,17 @@ function Character(x, y, speed) {
     fill(0, 255, 70);
     text(this.value, this.x, this.y);
     this.rain();
+    this.setToRandomSymbol();
   };
 
   this.rain = function() {
+    if(this.y >= height) {
+      this.y = 0;
+    } else {
+      this.y += this.speed;
+    }
     this.y += this.speed;
   }
-
 }
 
 
